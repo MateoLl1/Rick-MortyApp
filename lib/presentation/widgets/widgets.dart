@@ -9,3 +9,5 @@ export './loading_card.dart';
 export './custom_text_field.dart';
 
 export './character_search.dart';
+
+export './footer.dart';

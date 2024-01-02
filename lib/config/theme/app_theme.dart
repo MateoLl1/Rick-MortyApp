@@ -44,6 +44,12 @@ class AppTheme {
         fontWeight: FontWeight.w500,
       ),
 
+      titleSmall: GoogleFonts.montserratAlternates(
+        fontSize: 15,
+        color: Colors.greenAccent,
+        decoration: TextDecoration.lineThrough
+      )
+
       
 
     )

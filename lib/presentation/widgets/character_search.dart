@@ -17,6 +17,12 @@ class CharacterSearch extends StatelessWidget {
         ListTile(
           leading: Image.network(
             character.image,
+            loadingBuilder: (context, child, loadingProgress) {
+              if (loadingProgress != null) {
+              return const CircularProgressIndicator(strokeWidth: 1,);
+              }
+              return child;
+            },
           ),
           title: Text(character.nombre),
           trailing: const Icon(Icons.arrow_forward_ios),

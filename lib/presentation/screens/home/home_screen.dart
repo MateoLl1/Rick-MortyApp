@@ -45,8 +45,7 @@ class HomeScreen extends StatelessWidget {
               title: 'Otros personajes',
             ),
             
-
-            const SizedBox(height: 30,)
+            const FooterComponent(),
       
           ],
         ),
