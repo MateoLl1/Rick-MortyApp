@@ -98,11 +98,11 @@ class _CharacterContent extends StatelessWidget {
         Row(
           children: [
             _TextContent(
-          content: character.estado, label: 'Status: '
+          content: character.estado, label: 'Status:'
         ),
         const Spacer(),
         _TextContent(
-          content: character.especie, label: 'Specie: '
+          content: character.especie, label: 'Specie:'
         ),
           ],
         ),

@@ -8,8 +8,9 @@ class PersonajesProvider extends ChangeNotifier {
   final RickAndMortyRepositoryImpl repositoryImpl;
 
   PersonajesProvider({required this.repositoryImpl});
-  final scrollController = ScrollController();
   final List<Personaje> personajes = [];
+  final List<Personaje> personajesLista2 = [];
+  final List<Personaje> personajesLista3 = [];
   final List<Personaje> searchCharacters = [];
   
   bool isLoading = true;
@@ -21,11 +22,21 @@ class PersonajesProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  posicionController (){
-    final position = scrollController.position.context;
-
-    print(position);
+  Future<void> getCharacter2({int page = 2})async{
+    final newCharacter = await repositoryImpl.cargarPersonajes(page: page);
+    personajesLista2.addAll(newCharacter);
+    isLoading = false;
+    notifyListeners();
   }
+
+  Future<void> getCharacter3({int page = 3})async{
+    final newCharacter = await repositoryImpl.cargarPersonajes(page: page);
+    personajesLista3.addAll(newCharacter);
+    isLoading = false;
+    notifyListeners();
+  }
+
+  
 
 
   Future<void> search(String name)async{

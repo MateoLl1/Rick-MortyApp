@@ -34,15 +34,18 @@ class HomeScreen extends StatelessWidget {
             _HomeView(
               personajes: personajesProvider.personajes,
               title: 'Personajes principales',
+              data: 1,
             ),
 
             _HomeView(
-              personajes: personajesProvider.personajes,
+              personajes: personajesProvider.personajesLista2,
               title: 'Personajes secundarios',
+              data: 2,
             ),
             _HomeView(
-              personajes: personajesProvider.personajes,
+              personajes: personajesProvider.personajesLista3,
               title: 'Otros personajes',
+              data: 3,
             ),
             
             const FooterComponent(),
@@ -58,11 +61,15 @@ class _HomeView extends StatelessWidget {
   
   final List<Personaje> personajes;
   final String title;
-  const _HomeView({required this.personajes, required this.title});
+  final int data;
+  const _HomeView({
+    required this.personajes, 
+    required this.title, 
+    required this.data
+  });
 
   @override
   Widget build(BuildContext context) {
-    final controller = context.watch<PersonajesProvider>();
     return SizedBox(
       height: 260,
       child: Column(
@@ -73,14 +80,24 @@ class _HomeView extends StatelessWidget {
           
           Expanded(
           child: ListView.builder(
-            controller: controller.scrollController,
             itemCount: personajes.length,
             scrollDirection: Axis.horizontal,
             itemBuilder: (BuildContext context, int index) {
               final personaje = personajes[index];
               return GestureDetector(
                 onTap: () {
-                  context.push('/character/${personaje.id}');
+                  switch (data) {
+                    case 1:
+                      context.push('/character/${personaje.id}');
+                      break;
+                    case 2:
+                      context.push('/character2/${personaje.id}');
+                      break;
+                    case 3:
+                      context.push('/character3/${personaje.id}');
+                      break;
+                    default:
+                  }
                 },
                 child: CustomCards(personaje: personaje,)
               );

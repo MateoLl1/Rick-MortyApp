@@ -30,6 +30,31 @@ final appRouter = GoRouter(
         return CharacterScreen(personaje: character,);
       },
     ),
+    GoRoute(
+      path: '/character2/:id',
+      builder: (context, state) {
+        final idCharacter = state.pathParameters['id'] ?? '0';
+        final personajeProvider = context.read<PersonajesProvider>();
+
+        final character = personajeProvider.personajesLista2.firstWhere(
+          (element) => element.id == int.parse(idCharacter),
+        );
+        return CharacterScreen(personaje: character,);
+      },
+    ),
+    
+    GoRoute(
+      path: '/character3/:id',
+      builder: (context, state) {
+        final idCharacter = state.pathParameters['id'] ?? '0';
+        final personajeProvider = context.read<PersonajesProvider>();
+
+        final character = personajeProvider.personajesLista3.firstWhere(
+          (element) => element.id == int.parse(idCharacter),
+        );
+        return CharacterScreen(personaje: character,);
+      },
+    ),
 
 
     GoRoute(

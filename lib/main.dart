@@ -20,6 +20,8 @@ class MyApp extends StatelessWidget {
           lazy: false,
           create: (context) => PersonajesProvider(repositoryImpl: repository)
             ..getCharacter()
+            ..getCharacter2()
+            ..getCharacter3()
         )
       ],
       child: MaterialApp.router(
